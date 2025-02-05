@@ -1,0 +1,23 @@
+// Defining pins for the motion sensor and LED
+int SensorPin = 2;    // Sensor is connected to digital pin 2
+int LedPin = 3;        // LED is connected to digital pin 3
+
+void setup() {
+  pinMode(SensorPin, INPUT);   // Set the sensor pin as input to receive data
+  pinMode(LedPin, OUTPUT);     // Set the LED pin as output to control the LED
+  Serial.begin(9600);          // Start the Serial Monitor with a baud rate of 9600
+}
+
+void loop() {
+  int motion = digitalRead(SensorPin);  // Read the sensor data (HIGH if motion detected, LOW if not)
+
+  if (motion == HIGH) {                 // If motion is detected
+    digitalWrite(LedPin, HIGH);         // Turn the LED ON
+    Serial.println("Motion detected");   // Print "Motion detected" in the Serial Monitor
+    delay(1000);                        // Wait for 1 second (1000 milliseconds)
+  } else {                              // If no motion is detected
+    digitalWrite(LedPin, LOW);          // Turn the LED OFF
+    Serial.println("No Motion detected"); // Print "No Motion detected" in the Serial Monitor
+    delay(1000);                        // Wait for 1 second
+  }
+}
