@@ -111,7 +111,7 @@ int main() {
     }
 
     // --- Results ---
-    std::cout << "Results are " << (correct ? "correct ✅" : "incorrect ❌") << std::endl;
+    std::cout << "Results are " << (correct ? "correct " : "incorrect ") << std::endl;
     auto duration_gpu = std::chrono::duration_cast<std::chrono::nanoseconds>(end_gpu - start_gpu).count();
     auto duration_cpu = std::chrono::duration_cast<std::chrono::nanoseconds>(end_cpu - start_cpu).count();
     std::cout << "OpenCL time: " << duration_gpu << " ns\n";
